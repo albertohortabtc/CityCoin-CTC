@@ -33,6 +33,8 @@ contract Whitelist {
       require(whitelistedAddresses[_address], "Whitelist: You need to be whitelisted");
       _;
     }
+    
+    // deployed contract address 0x7e940B066d850927eA086f795597A5Ff197D8e62
 
     function addUser(address _addressToWhitelist) public onlyOwner {
       require(whitelistedAddresses[_addressToWhitelist]==false, "this address already exists");
