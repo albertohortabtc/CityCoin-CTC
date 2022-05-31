@@ -74,3 +74,4 @@ contract SILVER is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable, EIP712, 
         return super.supportsInterface(interfaceId);
     }
 }
+// address contract 0x4C33f39080BCD554fC3F60081dF0D5C444fb8d06
