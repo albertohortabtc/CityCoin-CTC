@@ -74,3 +74,5 @@ contract GOLD is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable, EIP712, ER
         return super.supportsInterface(interfaceId);
     }
 }
+
+// address contract 0xcD654FEF3b29D8fd1DB2875BaAd246A6b0Da531F
