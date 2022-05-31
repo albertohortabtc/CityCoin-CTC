@@ -22,7 +22,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract PALLADIUM is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable, EIP712, ERC721Votes {
     using Counters for Counters.Counter;
-    uint256 maxSup = 50;
+    uint256 maxSup = 51;
 
     Counters.Counter private _tokenIdCounter;
 
