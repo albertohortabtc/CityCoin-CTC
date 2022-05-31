@@ -74,3 +74,5 @@ contract PALLADIUM is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable, EIP71
         return super.supportsInterface(interfaceId);
     }
 }
+
+// address contract 0x0862f60Bb7C9c0B8d81388676ED1430F62D1cA6c
