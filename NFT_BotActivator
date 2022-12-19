@@ -1,0 +1,84 @@
+// ---------------- CityCoin-ctc -----------------------
+//
+//  This contract has the function of detecting the 
+//  NFT GOLD and PALLADIUM allowing you to activate a CityBot ID
+//      
+//   
+//           
+//       https://citycoin-ctc.com/
+//
+// ------------------------------------------------------
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7.0 <0.9.0;
+
+contract BotIdActivator {
+     IERC20 public founderPassPalladium;
+     IERC20 public founderPassGold;
+
+
+    address owner;
+
+    mapping(address => bool)  statelistedAddresses;
+    mapping(address => uint32)  botlistedAddresses;
+
+
+    constructor()  {
+      owner = msg.sender;
+       founderPassPalladium = IERC20(0x0862f60Bb7C9c0B8d81388676ED1430F62D1cA6c);
+       founderPassGold = IERC20(0xcD654FEF3b29D8fd1DB2875BaAd246A6b0Da531F);
+    
+    }
+
+    modifier onlyOwner() {
+      require(msg.sender == owner, "Ownable: caller is not the owner");
+      _;
+    }
+
+    modifier isBotlisted(address _address) {
+      require(statelistedAddresses[_address], "You never add ID Before, please add");
+      _;
+    }
+    
+
+    function addBotId(uint32  _botToList) external {
+     
+        require(((founderPassPalladium.balanceOf(msg.sender))>0 || (founderPassPalladium.balanceOf(msg.sender))>0) ,"NO NFT");           
+          statelistedAddresses[msg.sender] = true;
+          botlistedAddresses[msg.sender] = _botToList;
+           
+           
+    }
+
+ 
+
+    function verifyUser() public view returns(uint32) {
+      uint32 userIsBotlisted = botlistedAddresses[msg.sender];
+      return userIsBotlisted;
+    }    
+
+    function verifyMyWallet() public view isBotlisted(msg.sender) returns(bool){
+      return (true);
+    }
+
+}
+interface IERC20 {
+    function totalSupply() external view returns (uint);
+
+    function balanceOf(address account) external view returns (uint);
+
+    function transfer(address recipient, uint amount) external returns (bool);
+
+    function allowance(address owner, address spender) external view returns (uint);
+
+    function approve(address spender, uint amount) external returns (bool);
+
+    function transferFrom(
+        address sender,
+        address recipient,
+        uint amount
+    ) external returns (bool);
+
+    event Transfer(address indexed from, address indexed to, uint value);
+    event Approval(address indexed owner, address indexed spender, uint value);
+}
