@@ -52,12 +52,12 @@ contract BotIdActivator {
 
  
 
-    function verifyUser() public view returns(uint32) {
-      uint32 userIsBotlisted = botlistedAddresses[msg.sender];
+    function verifyUser(address _address) public view returns(uint32) {
+      uint32 userIsBotlisted = botlistedAddresses[_address];
       return userIsBotlisted;
     }    
 
-    function verifyMyWallet() public view isBotlisted(msg.sender) returns(bool){
+    function verifyMyWallet(address _address) public view isBotlisted(_address) returns(bool){
       return (true);
     }
 
