@@ -43,7 +43,7 @@ contract BotIdActivator {
 
     function addBotId(uint32  _botToList) external {
      
-        require(((founderPassPalladium.balanceOf(msg.sender))>0 || (founderPassPalladium.balanceOf(msg.sender))>0) ,"NO NFT");           
+        require(((founderPassPalladium.balanceOf(msg.sender))>0 || (founderPassGold.balanceOf(msg.sender))>0) ,"NO NFT");           
           statelistedAddresses[msg.sender] = true;
           botlistedAddresses[msg.sender] = _botToList;
            
@@ -83,5 +83,4 @@ interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
 }
 
-
-// contract address 0x5D6528EB0A51eD0F1A86Db73e80391aF12C892b4
+// contract address: 0x03700211Aaeb3fA85f13594d6BB67B9cf6712049
